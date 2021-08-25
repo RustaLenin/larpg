@@ -1,0 +1,154 @@
+/** Nice Button **/
+
+nice-button {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 16px;
+  color: var( --accent_button_color );
+  border: 1px solid var( --accent_button_color );
+  background-color: var( --content_background );
+  transition: var( --regular_transition );
+  cursor: pointer;
+  width: fit-content;
+  width: -moz-fit-content;
+  opacity: 0.8;
+
+  &:hover {
+    color: var( --font_reverce_accent_color );
+    background-color: var( --accent_button_color );
+    opacity: 1;
+  }
+
+  &[regular=true] {
+    border: 1px solid var( --divider_color );
+    color: var( --second_font_color );
+    background-color: var( --content_background );
+  }
+
+  &[regular=true]:hover {
+    color: var( --font_reverce_accent_color );
+    background-color: var( --second_font_color );
+  }
+
+  &[accent=true] {
+    border: 1px solid var( --accent_second_button_color );
+    color: var( --accent_second_button_color );
+    background-color: var( --content_background );
+  }
+
+  &[accent=true]:hover {
+    color: var( --font_reverce_accent_color );
+    background-color: var( --accent_second_button_color );
+  }
+
+  &:hover nice-icon svg {
+    fill: var( --icon_reverce_accent_color );
+    opacity: 1;
+  }
+
+  &:hover nice-icon svg {
+    fill: var(--icon_reverce_accent_color);
+    opacity: 1;
+  }
+
+  &.submit nice-icon svg {
+    fill: var( --icon_reverce_accent_color );
+  }
+
+  &.submit:hover nice-icon svg {
+    fill: var( --icon_reverce_accent_color );
+    opacity: 1;
+  }
+
+  .submit:hover nice-icon svg {
+    fill: var( --icon_reverce_accent_color );
+    opacity: 1;
+  }
+
+  &.tiny {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+
+  &.tiny nice-icon {
+    margin-right: 4px;
+  }
+
+  &.small {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+
+  &.small nice-icon {
+    margin-right: 6px;
+  }
+
+  &.medium {
+    font-size: 16px;
+    padding: 6px 16px;
+  }
+
+  &.medium nice-icon {
+    margin-right: 8px;
+  }
+
+  &.large {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  &.large nice-icon {
+    margin-right: 10px;
+  }
+
+  &.huge {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+
+  &.huge nice-icon {
+    margin-right: 12px;
+  }
+
+  /** Submit Button **/
+
+  &.submit {
+    font-family: var( --regular_font_family );
+    border: 1px solid var( --accent_second_button_color );
+    background-color: var( --accent_second_button_color );
+    color: var( --font_reverce_accent_color );
+  }
+
+  &.submit nice-icon svg {
+    fill: var( --icon_reverce_accent_color );
+  }
+
+  &.submit:hover nice-icon svg {
+    fill: var( --icon_reverce_accent_color );
+    opacity: 1;
+  }
+
+  &.submit[accent=true] {
+    background-color: var( --accent_button_color );
+  }
+
+  &.submit.w100 {
+    width: 100%;
+    text-align: center;
+  }
+
+  &.submit.unactive {
+    background-color: var( --sub_bacground );
+  }
+
+  &.submit:hover {
+    opacity: 1;
+  }
+
+  &.submit.disabled {
+    background-color: var( --disabled_button_color );
+  }
+
+}

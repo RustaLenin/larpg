@@ -1,0 +1,76 @@
+nice-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+  transition: 1s;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  /** Sizes **/
+  /** States **/
+  /** Other **/
+}
+nice-icon svg {
+  transition: var(--regular_transition);
+  opacity: 1;
+  fill: var(--icon_color);
+}
+nice-icon:hover svg {
+  fill: var(--icon_hover_color);
+}
+nice-icon[size=micro] svg {
+  width: 12px;
+  height: 12px;
+}
+nice-icon[size=tiny] svg {
+  width: 20px;
+  height: 20px;
+}
+nice-icon[size=small] svg {
+  width: 24px;
+  height: 24px;
+}
+nice-icon[size=medium] svg {
+  width: 28px;
+  height: 28px;
+}
+nice-icon[size=large] svg {
+  width: 32px;
+  height: 32px;
+}
+nice-icon[size=huge] svg {
+  width: 38px;
+  height: 38px;
+}
+nice-icon[rotate=true] {
+  transform: rotate(180deg);
+}
+nice-icon[hidden=true] {
+  transition: opacity 1s 0s, visibility 0s 1s;
+  opacity: 0;
+  visibility: hidden;
+}
+nice-icon[pointer=true] {
+  cursor: pointer;
+}
+nice-icon[spin=true] svg {
+  animation: spin 0.8s infinite linear;
+}
+nice-icon.success svg {
+  fill: var(--success);
+}
+nice-icon.error svg {
+  fill: var(--icon_close_delete);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=icon.css.map */

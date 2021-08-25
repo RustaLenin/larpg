@@ -1,0 +1,97 @@
+.notify_area {
+  min-width: 160px;
+  max-width: 480px;
+  position: fixed;
+  top: 7vh;
+  right: 5vh;
+  background-color: transparent;
+  z-index: 12;
+}
+
+nice-notify {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 140px;
+  background-color: var(--content_background);
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  opacity: 1;
+  transition: var(--regular_transition);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+  font-family: var(--regular_font_family);
+  padding-right: 16px;
+  /** Icon **/
+  /** Types **/
+  /** Content **/
+  /** Controls **/
+  /** Closing Animation **/
+}
+nice-notify .notify_icon {
+  display: flex;
+  padding: 0 8px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+}
+nice-notify .notify_icon svg {
+  opacity: 1;
+}
+nice-notify[type=success] .notify_icon svg, nice-notify[type=info] .notify_icon svg, nice-notify[type=warning] .notify_icon svg, nice-notify[type=error] .notify_icon svg {
+  fill: var(--notify_icon_color);
+}
+nice-notify[type=success] .notify_icon {
+  background-color: var(--success);
+}
+nice-notify[type=info] .notify_icon {
+  background-color: var(--info);
+}
+nice-notify[type=warning] .notify_icon {
+  background-color: var(--warning);
+}
+nice-notify[type=error] .notify_icon {
+  background-color: var(--error);
+}
+nice-notify .notify_body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 4px 16px 4px 64px;
+}
+nice-notify .notify_body .notify_title {
+  font-size: 18px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+nice-notify .notify_body .notify_text {
+  font-size: 16px;
+  color: var(--regular_font_color);
+  text-align: left;
+}
+nice-notify .notify_controls {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px;
+  cursor: pointer;
+}
+nice-notify .notify_controls:hover {
+  background-color: var(--sub_bacground);
+}
+nice-notify .notify_controls:hover svg,
+nice-notify .notify_controls svg:hover {
+  fill: var(--icon_strong_color);
+}
+nice-notify.closing {
+  transition: 0.5s;
+  transform: translateX(400px);
+  opacity: 0;
+}
+
+/*# sourceMappingURL=notify.css.map */
