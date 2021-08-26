@@ -11,14 +11,30 @@
   --accent_border_color: #009C4F;
   --accent_hover_border_color: #FF6600;
   /** Fields **/
-  --field_border: #C4C4C4;
-  --field_background: #ffffff;
-  --field_placeholder: #B9B9B9;
-  --field_font_color: #000000;
-  --field_focus_color: #3784DC;
-  --field_validate_error: #E00000;
-  --field_validate_success: #009C4F;
-  --field_comment: #666666;
+  --field_transition_speed: 0.2s;
+  --field_filled_variant_backgroud: #ececec;
+  --field_border_color: #AAAAAA;
+  --field_background_color: #ffffff;
+  --field_placeholder_color: #AAAAAA;
+  --field_content_color: #444444;
+  --field_label_color: #666666;
+  --field_comment_color: #666666;
+  --field_hover_border_color: #222222;
+  --field_hover_background_color: #ffffff;
+  --field_hover_placeholder_color: #999999;
+  --field_hover_content_color: #222222;
+  --field_hover_label_color: #222222;
+  --field_hover_icon_color: #222222;
+  --field_hover_comment_color: #666666;
+  --field_focus_border_color: #3784DC;
+  --field_focus_background_color: #ffffff;
+  --field_focus_placeholder_color: #999999;
+  --field_focus_content_color: #000000;
+  --field_focus_label_color: #3784DC;
+  --field_focus_icon_color: #3784DC;
+  --field_focus_comment_color: #666666;
+  --field_validate_error_color: #E00000;
+  --field_validate_success_color: #009C4F;
   /** Select Fields **/
   --field_select_divider: #BDBDBD;
   --field_select_background: #ffffff;

@@ -3,13 +3,13 @@ import { collectModel } from '../helpers/models.js'
 
 /** Default button data **/
 const defaults = {
-    'icon': false,
-    'size': 'small',
-    'disabled': false,
-    'hidden': false,
-    'text': 'Submit',
-    'regular': true,
-    'accent': false,
+    icon: false,
+    size: 'small',
+    disabled: false,
+    hidden: false,
+    text: 'Submit',
+    regular: true,
+    accent: false
 };
 
 class NiceButton extends HTMLElement {
@@ -19,9 +19,22 @@ class NiceButton extends HTMLElement {
         this.render();
     }
 
+    /** This default html element method using to set observed attributes **/
+    static get observedAttributes() {
+        return ['icon'];
+    }
+
+    /** This function will fired, when observed attr of element will be changed **/
+    attributeChangedCallback( name, oldValue, newValue ) {
+        if (oldValue !== newValue && oldValue !== null ) {
+            this.render();
+        }
+    }
+
     render() {
+        // console.log('nice button render start');
         this.model = collectModel(defaults, this)
-        this.insertAdjacentHTML( 'beforeend', this.template() );
+        this.innerHTML = this.template();
     }
 
     template() {

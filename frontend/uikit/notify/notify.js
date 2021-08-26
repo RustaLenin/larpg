@@ -5,19 +5,19 @@ import * as notifyController from "./notify_controller.js";
 
 /** Default notify data **/
 const defaults = {
-    'icon': 'check',
-    'auto_close': true,
-    'close_interval': 3000,
-    'title': 'Notification',
-    'text': 'Something happens ¯\\_(ツ)_/¯',
-    'type': 'info' //Possible types: success, error, warning, info
+    icon: 'check',
+    auto_close: true,
+    close_interval: 3000,
+    title: 'Notification',
+    text: 'Something happens ¯\\_(ツ)_/¯',
+    type: 'info' //Possible types: success, error, warning, info
 };
 
 const typeIconMap = {
-  'success': 'notify_success',
-  'error': 'notify_error',
-  'warning': 'notify_warning',
-  'info': 'notify_info'
+  success: 'notify_success',
+  error: 'notify_error',
+  warning: 'notify_warning',
+  info: 'notify_info'
 };
 
 class NiceNotify extends HTMLElement {
@@ -34,9 +34,9 @@ class NiceNotify extends HTMLElement {
     }
 
     render() {
-        this.model = collectModel(defaults, this)
+        this.model = collectModel(defaults, this);
         this.model.id = this.getAttribute('id');
-        this.insertAdjacentHTML('afterbegin', this.template() );
+        this.innerHTML = this.template();
     }
 
     template() {

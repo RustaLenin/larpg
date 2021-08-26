@@ -3,12 +3,12 @@ import { uikit } from '../uikit.js';
 
 /** Default SVG Icon data **/
 const defaults = {
-    'icon': 'check',
-    'size': 'small',
-    'pointer': false,
-    'rotate': false,
-    'spin': false,
-    'hidden': false
+    icon: 'check',
+    size: 'small',
+    pointer: false,
+    rotate: false,
+    spin: false,
+    hidden: false
 };
 
 export class NiceIcon extends HTMLElement {
@@ -26,11 +26,14 @@ export class NiceIcon extends HTMLElement {
 
     /** This function will fired, when observed attr of element will be changed **/
     attributeChangedCallback( name, oldValue, newValue ) {
-        this.render();
+        if (oldValue !== newValue && oldValue !== null ) {
+            this.render();
+        }
     }
 
     /** This function get icon name from attribute and try to find it in map and place in the WebComponent container **/
     render() {
+        // console.log('nice icon render start');
         let icon = this.getAttribute('icon');
         this.innerHTML = SvgMap[icon] ? SvgMap[icon] : SvgMap[defaults.icon];
     }
