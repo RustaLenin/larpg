@@ -9,6 +9,12 @@ nice-field {
   font-family: var(--regular_font_family);
   flex-shrink: 0;
   margin: 8px;
+  /** Input **/
+  /** TextArea **/
+  /** Comment **/
+  /**
+    Sizes
+  **/
   /**
   ***
     Variants
@@ -16,15 +22,15 @@ nice-field {
   **/
   /** Hover **/
   /** Focus **/
-  /**
-    Sizes
-  **/
-  /**
-    Size then Focus or Hover
-  **/
+  /** Resize **/
 }
-nice-field[inline=true] {
+nice-field[inline=on] {
   display: inline-flex;
+}
+nice-field[full_width=on] {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
 }
 nice-field .field_label {
   position: absolute;
@@ -44,14 +50,14 @@ nice-field input {
   transition: var(--field_transition_speed);
   overflow-x: hidden;
   word-break: break-word;
-  min-width: 100%;
+  min-width: 270px;
   line-height: 1.33;
   max-height: 240px;
 }
 nice-field input::placeholder {
   color: var(--field_placeholder_color);
 }
-nice-field[align_center=true] input {
+nice-field[align_center=on] input {
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -62,49 +68,33 @@ nice-field > nice-icon {
   bottom: 31px;
   transition: 0s;
 }
+nice-field textarea {
+  color: var(--field_content_color);
+  background-color: var(--field_background_color);
+  border: 1px solid var(--field_border_color);
+  outline: none;
+  transition: var(--field_transition_speed);
+  overflow: auto;
+  word-break: break-word;
+  min-width: 270px;
+  line-height: 1.33;
+  padding: 8px;
+}
+nice-field textarea::placeholder {
+  color: var(--field_placeholder_color);
+}
 nice-field .field_message {
   position: absolute;
   visibility: hidden;
   opacity: 0;
   transition: var(--regular_transition);
 }
-nice-field[variant=""] input, nice-field[variant=standard] input {
-  border-radius: 6px;
-}
-nice-field:hover .field_label {
-  color: var(--field_hover_label_color);
-}
-nice-field:hover nice-icon svg {
-  fill: var(--field_hover_icon_color);
-}
-nice-field:hover input {
-  border: 2px solid var(--field_hover_border_color);
-  color: var(--field_hover_content_color);
-  background-color: var(--field_hover_background_color);
-}
-nice-field:hover input::placeholder {
-  color: var(--field_hover_placeholder_color);
-}
-nice-field:focus-within .field_label {
-  color: var(--field_focus_label_color);
-}
-nice-field:focus-within nice-icon svg {
-  fill: var(--field_focus_icon_color);
-}
-nice-field:focus-within input {
-  border: 2px solid var(--field_focus_border_color);
-  color: var(--field_focus_content_color);
-  background-color: var(--field_focus_background_color);
-}
-nice-field:focus-within input::placeholder {
-  color: var(--field_focus_placeholder_color);
-}
 nice-field[size=huge] {
   font-size: 1.2rem;
   padding: 1.2rem 18px 26px 0;
 }
-nice-field[size=huge] input {
-  padding: 14px 40px 14px 14px;
+nice-field[size=huge] input, nice-field[size=huge] textarea {
+  padding: 14px 40px 14px 8px;
 }
 nice-field[size=huge] .field_label {
   font-size: 1.2rem;
@@ -116,8 +106,8 @@ nice-field[size=large] {
   font-size: 1.1rem;
   padding: 1.1rem 18px 24px 0;
 }
-nice-field[size=large] input {
-  padding: 12px 40px 12px 12px;
+nice-field[size=large] input, nice-field[size=large] textarea {
+  padding: 12px 40px 12px 8px;
 }
 nice-field[size=large] .field_label {
   font-size: 1.1rem;
@@ -129,8 +119,8 @@ nice-field[size=medium] {
   font-size: 1rem;
   padding: 1rem 18px 22px 0;
 }
-nice-field[size=medium] input {
-  padding: 11px 40px 11px 11px;
+nice-field[size=medium] input, nice-field[size=medium] textarea {
+  padding: 11px 40px 11px 8px;
 }
 nice-field[size=medium] .field_label {
   font-size: 1rem;
@@ -142,7 +132,7 @@ nice-field[size=small] {
   font-size: 0.9rem;
   padding: 0.9rem 18px 22px 0;
 }
-nice-field[size=small] input {
+nice-field[size=small] input, nice-field[size=medium] textarea {
   padding: 8px 40px 6px 8px;
 }
 nice-field[size=small] .field_label {
@@ -154,53 +144,36 @@ nice-field[size=small]:not([icon=""]) input {
 nice-field[size=small] nice-icon {
   bottom: 28px;
 }
-nice-field[size=huge]:hover input {
-  padding: 13px 39px 10px 11px;
+nice-field[variant=""] input, nice-field[variant=standard] input, nice-field[variant=standard] textarea {
+  border-radius: 6px;
 }
-nice-field[size=huge]:not([icon=""]):hover input {
-  padding: 13px 39px 10px 49px;
+nice-field:hover .field_label {
+  color: var(--field_hover_label_color);
 }
-nice-field[size=large]:hover input {
-  padding: 11px 39px 11px 11px;
+nice-field:hover nice-icon svg {
+  fill: var(--field_hover_icon_color);
 }
-nice-field[size=large]:not([icon=""]):hover input {
-  padding: 11px 39px 11px 45px;
+nice-field:hover input, nice-field:hover textarea {
+  border-color: var(--field_hover_border_color);
+  color: var(--field_hover_content_color);
+  background-color: var(--field_hover_background_color);
 }
-nice-field[size=medium]:hover input {
-  padding: 10px 39px 10px 10px;
+nice-field:hover input::placeholder, nice-field:hover textarea::placeholder {
+  color: var(--field_hover_placeholder_color);
 }
-nice-field[size=medium]:not([icon=""]):hover input {
-  padding: 10px 39px 10px 39px;
+nice-field:focus-within .field_label {
+  color: var(--field_focus_label_color);
 }
-nice-field[size=small]:hover input {
-  padding: 7px 39px 5px 7px;
+nice-field:focus-within nice-icon svg {
+  fill: var(--field_focus_icon_color);
 }
-nice-field[size=small]:not([icon=""]):hover input {
-  padding: 7px 39px 5px 39px;
+nice-field:focus-within input, nice-field:focus-within textarea {
+  border-color: var(--field_focus_border_color);
+  color: var(--field_focus_content_color);
+  background-color: var(--field_focus_background_color);
 }
-nice-field[size=huge]:focus-within input {
-  padding: 13px 39px 11px 11px;
-}
-nice-field[size=huge]:not([icon=""]):focus-within input {
-  padding: 13px 39px 10px 49px;
-}
-nice-field[size=large]:focus-within input {
-  padding: 11px 39px 11px 11px;
-}
-nice-field[size=large]:not([icon=""]):focus-within input {
-  padding: 11px 39px 11px 45px;
-}
-nice-field[size=medium]:focus-within input {
-  padding: 10px 39px 10px 10px;
-}
-nice-field[size=medium]:not([icon=""]):focus-within input {
-  padding: 10px 39px 10px 39px;
-}
-nice-field[size=small]:focus-within input {
-  padding: 7px 39px 5px 7px;
-}
-nice-field[size=small]:not([icon=""]):focus-within input {
-  padding: 7px 39px 5px 39px;
+nice-field:focus-within input::placeholder, nice-field:focus-within textarea::placeholder {
+  color: var(--field_focus_placeholder_color);
 }
 nice-field[variant=filled] {
   padding-top: 0;
@@ -208,14 +181,11 @@ nice-field[variant=filled] {
 nice-field[variant=filled] .field_label {
   transform: translate(4px, 2px) scale(0.8);
 }
-nice-field[variant=filled] input {
+nice-field[variant=filled] input, nice-field[variant=filled] textarea {
   padding-top: 1.8rem;
   border-radius: 0;
   border-width: 0 0 1px 0;
   background-color: var(--field_filled_variant_backgroud);
-}
-nice-field[variant=filled]:hover input, nice-field[variant=filled]:focus-within input {
-  border-bottom-width: 2px;
 }
 nice-field[size=huge][variant=filled] input {
   padding-top: calc(1.2rem + 4px ) !important;
@@ -227,6 +197,18 @@ nice-field[size=medium][variant=filled] input {
   padding-top: calc(1rem + 4px ) !important;
 }
 nice-field[size=small][variant=filled] input {
+  padding-top: calc(0.9rem + 4px ) !important;
+}
+nice-field[size=huge][variant=filled] textarea {
+  padding-top: calc(1.2rem + 4px ) !important;
+}
+nice-field[size=large][variant=filled] textarea {
+  padding-top: calc(1.1rem + 4px ) !important;
+}
+nice-field[size=medium][variant=filled] textarea {
+  padding-top: calc(1rem + 4px ) !important;
+}
+nice-field[size=small][variant=filled] textarea {
   padding-top: calc(0.9rem + 4px ) !important;
 }
 nice-field[size=huge][variant=outlined] {
@@ -246,7 +228,7 @@ nice-field[variant=outlined] .field_label {
   transform: translate(0, 0) scale(0.8);
   padding: 0 12px 0 4px;
 }
-nice-field[variant=outlined] input {
+nice-field[variant=outlined] input, nice-field[variant=outlined] textarea {
   border-radius: 6px;
 }
 nice-field[variant=simplified] {
@@ -255,13 +237,10 @@ nice-field[variant=simplified] {
 nice-field[variant=simplified] .field_label {
   transform: translate(4px, 0) scale(0.8);
 }
-nice-field[variant=simplified] input {
+nice-field[variant=simplified] input, nice-field[variant=simplified] textarea {
   padding-top: 1.8rem;
   border-radius: 0;
   border-width: 0 0 1px 0;
-}
-nice-field[variant=simplified]:hover input, nice-field[variant=simplified]:focus-within input {
-  border-bottom-width: 2px;
 }
 nice-field[size=huge][variant=simplified] input {
   padding-top: calc(1.2rem + 4px ) !important;
@@ -275,9 +254,37 @@ nice-field[size=medium][variant=simplified] input {
 nice-field[size=small][variant=simplified] input {
   padding-top: calc(0.9rem + 4px ) !important;
 }
-nice-field[variant=simplified] input {
+nice-field[size=huge][variant=simplified] textarea {
+  padding-top: calc(1.2rem + 4px ) !important;
+}
+nice-field[size=large][variant=simplified] textarea {
+  padding-top: calc(1.1rem + 4px ) !important;
+}
+nice-field[size=medium][variant=simplified] textarea {
+  padding-top: calc(1rem + 4px ) !important;
+}
+nice-field[size=small][variant=simplified] textarea {
+  padding-top: calc(0.9rem + 4px ) !important;
+}
+nice-field[variant=simplified] input, nice-field[variant=simplified] textarea {
   border-radius: 0;
   border-width: 0 0 1px 0;
+}
+nice-field[resize=off] textarea {
+  resize: none;
+  overflow: auto;
+}
+nice-field[resize=both] textarea {
+  resize: both;
+  overflow: auto;
+}
+nice-field[resize=x] textarea {
+  resize: horizontal;
+  overflow: auto;
+}
+nice-field[resize=y] textarea {
+  resize: vertical;
+  overflow: auto;
 }
 
 /*# sourceMappingURL=fields.css.map */

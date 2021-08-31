@@ -13,6 +13,18 @@ app.insertAdjacentHTML('afterbegin', `
         value="rustalenin@mail.ru"
         placeholder="john.doe@gmail.com"
         validation="true"
-        variant="simplified"
+        variant="outlined"
+        resize="off"
+        required="true"></nice-field>
+    <nice-field
+        icon="email" 
+        type="email" 
+        name="email"
+        label="E-Mail"
+        value="rustalenin@mail.ru"
+        placeholder="john.doe@gmail.com"
+        validation="true"
+        variant="outlined"
+        multiline="true"
         required="true"></nice-field>
 `);

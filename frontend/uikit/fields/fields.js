@@ -16,10 +16,11 @@ const defaults = {
     label:           '',                            // Part resolved 1
     show_label:      'on',                          // Resolved value: {on | off}
     size:            'medium',                      // Part resolved
-    align_center:    false,                         // Unresolved
-    inline:          false,                         // Unresolved
-    full_width:      false,                         // Unresolved
-    multiline:       false,                         // Unresolved
+    align_center:    'off',                         // Part resolved value: {on | off}
+    inline:          'off',                         // Part resolved value: {on | off}
+    full_width:      'off',                         // Part resolved value: {on | off}
+    multiline:       false,                         // Resolved value: {true | false }
+    resize:          'both',                        // Resolved, work only for multiline elements {off | both | x | y }
     max_rows:        1,                             // Unresolved
     min_rows:        1,                             // Unresolved
     rows:            1,                             // Unresolved
@@ -72,6 +73,7 @@ class NiceField extends HTMLElement {
         this.model = collectModel(defaults, this);
         this.setAttribute('size', this.model.size);
         this.setAttribute('icon', this.model.icon);
+        this.setAttribute('resize', this.model.resize);
         // this.setAttribute('value', this.model.value);
         // this.setAttribute('default_value', this.model.default_value);
         // this.setAttribute('animated_label', this.model.animated_label);
@@ -86,15 +88,23 @@ class NiceField extends HTMLElement {
             html += `<span class="field_label">${model.label}</span>`;
         }
 
-        html += `<input 
+        if (model.multiline === 'true') {
+            html += `<textarea
+                        name="${model.name}"
+                        placeholder="${model.placeholder}"
+                        oninput="this.closest('nice-field').setAttribute('value', this.value);"
+                        >${this.#renderTextValue()}</textarea>`;
+        } else {
+            html += `<input 
                     type="${model.type}" 
                     name="${model.name}" 
                     ${this.#renderFieldValue()}
                     placeholder="${model.placeholder}"
                     oninput="this.closest('nice-field').setAttribute('value', this.value);"
                 >`;
+        }
 
-        if ( model.icon ) {
+        if ( model.icon && model.multiline !== 'true' ) {
             html += `<nice-icon icon="${model.icon}" size="${model.size}"></nice-icon>`;
         }
 
@@ -113,6 +123,19 @@ class NiceField extends HTMLElement {
 
         if ( value !== null ) {
             return `value="${value}" `;
+        }
+    }
+    #renderTextValue() {
+        let model = this.model;
+        let value = null;
+        if ( model.value !== null ) {
+            value = model.value;
+        } else  if ( model.default_value !== null ) {
+            value = model.default_value;
+        }
+
+        if ( value !== null ) {
+            return value;
         }
     }
 
