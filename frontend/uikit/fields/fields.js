@@ -1,5 +1,6 @@
 import { uikit } from '../uikit.js';
 import {collectModel} from '../helpers/models.js';
+import {validate} from './validation.js';
 
 const defaults = {
 
@@ -54,11 +55,12 @@ class NiceField extends HTMLElement {
     constructor() {
         super();
         this.render();
+        this.addListeners();
     }
 
     /** This default html element method using to set observed attributes **/
     static get observedAttributes() {
-        return ['icon', 'size'];
+        return ['icon', 'multiline'];
     }
 
     /** This function will fired, when observed attr of element will be changed **/
@@ -68,12 +70,40 @@ class NiceField extends HTMLElement {
         }
     }
 
+    connectedCallback() {
+
+    }
+
+    disconnectedCallback() {
+
+    }
+
+    addListeners() {
+        let field;
+        if ( this.model.multiline ) {
+            field = this.querySelector('textarea');
+        } else {
+            field = this.querySelector('input');
+        }
+
+        field.addEventListener('input', (e) => {
+            this.setAttribute('value', e.target.value);
+        });
+
+        if ( this.model.validation ) {
+            field.addEventListener('input', (e) => {
+                validate(this);
+            });
+        }
+
+    }
+
     render() {
         // console.log('Nice field render start');
         this.model = collectModel(defaults, this);
         this.setAttribute('size', this.model.size);
         this.setAttribute('icon', this.model.icon);
-        this.setAttribute('resize', this.model.resize);
+        this.setAttribute('variant', this.model.variant);
         // this.setAttribute('value', this.model.value);
         // this.setAttribute('default_value', this.model.default_value);
         // this.setAttribute('animated_label', this.model.animated_label);
@@ -92,7 +122,6 @@ class NiceField extends HTMLElement {
             html += `<textarea
                         name="${model.name}"
                         placeholder="${model.placeholder}"
-                        oninput="this.closest('nice-field').setAttribute('value', this.value);"
                         >${this.#renderTextValue()}</textarea>`;
         } else {
             html += `<input 
@@ -100,7 +129,6 @@ class NiceField extends HTMLElement {
                     name="${model.name}" 
                     ${this.#renderFieldValue()}
                     placeholder="${model.placeholder}"
-                    oninput="this.closest('nice-field').setAttribute('value', this.value);"
                 >`;
         }
 
