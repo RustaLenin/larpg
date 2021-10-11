@@ -1,3 +1,7 @@
+import {debounce} from '../helpers/debounce.js';
+
+export const delayValidation = debounce(validate, 1800);
+
 export function validate( element ) {
     let result;
     let value = element.getAttribute('value')

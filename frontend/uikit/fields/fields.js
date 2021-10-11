@@ -1,6 +1,6 @@
 import { uikit } from '../uikit.js';
 import {collectModel} from '../helpers/models.js';
-import {validate} from './validation.js';
+import { validate, delayValidation } from './validation.js';
 
 const defaults = {
 
@@ -91,8 +91,16 @@ class NiceField extends HTMLElement {
         });
 
         if ( this.model.validation ) {
-            field.addEventListener('input', (e) => {
+            field.addEventListener('focusout', (e) => {
                 validate(this);
+            });
+            field.addEventListener('input', (e) => {
+                this.setAttribute('error', 'false');
+                delayValidation(this);
+            });
+            field.addEventListener('focusin', (e) => {
+                this.setAttribute('error', 'false');
+                delayValidation(this);
             });
         }
 
