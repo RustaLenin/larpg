@@ -1,4 +1,5 @@
 export const defaultTheme = {
+
 /** BackGrounds **/
     main_background: '#F7F3F2',
     content_background: '#ffffff',
@@ -12,11 +13,13 @@ export const defaultTheme = {
     accent_border_color: '#009C4F',
     accent_hover_border_color: '#FF6600',
 
-/** Fields **/
+/**
+Fields
+**/
     field_transition_speed: '0.2s',
     field_filled_variant_backgroud: '#ececec',
 
-/* Resting State */
+/** Resting State **/
     field_border_color: '#AAAAAA',
     field_background_color: '#ffffff',
     field_placeholder_color: '#AAAAAA',
@@ -24,8 +27,7 @@ export const defaultTheme = {
     field_label_color: '#666666',
     field_comment_color: '#666666',
 
-/* Hover State */
-
+/** Hover State **/
     field_hover_border_color: '#222222',
     field_hover_background_color: '#ffffff',
     field_hover_placeholder_color: '#999999',
@@ -34,8 +36,7 @@ export const defaultTheme = {
     field_hover_icon_color: '#222222',
     field_hover_comment_color: '#666666',
 
-/* Focus State */
-
+/** Focus State **/
     field_focus_border_color: '#3784DC',
     field_focus_background_color: '#ffffff',
     field_focus_placeholder_color: '#999999',
@@ -44,8 +45,7 @@ export const defaultTheme = {
     field_focus_icon_color: '#3784DC',
     field_focus_comment_color: '#666666',
 
-/* Validate States */
-
+/** Validate States **/
     field_validate_error_color: '#E00000',
     field_validate_success_color: '#009C4F',
 
