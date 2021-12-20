@@ -13,8 +13,11 @@ Class THEME_SETTINGS__PAGE {
             61 );
     }
 
-    public static function render() {
-        return '';
+    public static function render() { ?>
+
+        <script type="module" src="<?php echo get_template_directory_uri(); ?>/frontend/uikit/uikit.js"></script>
+        <nice-settings></nice-settings>
+        <?php
     }
 
 }
