@@ -1,0 +1,39 @@
+nice-settings {
+  margin: 24px 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  min-width: 640px;
+}
+
+nice-settings_header {
+  display: flex;
+  border: 1px solid black;
+  height: 50px;
+  padding: 8px 24px;
+  background-color: var(--main_background);
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+
+  .header_title {
+    font-size: 24px;
+    font-family: var(--regular_font_family);
+    color: var(--font_title_color)
+  }
+
+  .header_controls {
+    display: flex;
+  }
+
+  .header_controls nice-button {
+    margin-right: 24px;
+  }
+
+  .header_controls nice-button:last-of-type {
+    margin-right: 0;
+  }
+}
+
+
+

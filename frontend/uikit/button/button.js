@@ -4,18 +4,22 @@ import { collectModel } from '../helpers/models.js'
 /** Default button data **/
 const defaults = {
     icon: false,
+    icon_rotate: false,
     size: 'small',
     disabled: false,
     hidden: false,
     text: 'Submit',
-    regular: true,
-    accent: false
 };
 
 class NiceButton extends HTMLElement {
 
     constructor() {
         super();
+
+        if ( !this.getAttribute('size') ) {
+            this.setAttribute( 'size', defaults.size );
+        }
+
         this.render();
     }
 
@@ -34,6 +38,7 @@ class NiceButton extends HTMLElement {
     render() {
         // console.log('nice button render start');
         this.model = collectModel(defaults, this)
+
         this.innerHTML = this.template();
     }
 
@@ -41,7 +46,7 @@ class NiceButton extends HTMLElement {
         let model = this.model;
         let html = ``;
         if ( model.icon ) {
-            html += `<nice-icon icon="${model.icon}" size="${model.size}"></nice-icon>`
+            html += `<nice-icon icon="${model.icon}" size="${model.size}" rotate="${model.icon_rotate}"></nice-icon>`
         }
         html += `<span class="button_text">${model.text}</span>`;
         return html;

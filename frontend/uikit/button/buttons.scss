@@ -6,149 +6,216 @@ nice-button {
   border-radius: 4px;
   padding: 8px 20px;
   font-size: 16px;
-  color: var( --accent_button_color );
-  border: 1px solid var( --accent_button_color );
-  background-color: var( --content_background );
+  border: 1px solid var( --regular_button_border );
+  color: var( --regular_button_text );
+  background-color: var( --regular_button_background );
   transition: var( --regular_transition );
   cursor: pointer;
   width: fit-content;
   width: -moz-fit-content;
   opacity: 0.8;
 
+  nice-icon svg {
+    fill: var( --regular_button_icon );
+  }
+
   &:hover {
-    color: var( --font_reverce_accent_color );
-    background-color: var( --accent_button_color );
-    opacity: 1;
-  }
-
-  &[regular=true] {
-    border: 1px solid var( --divider_color );
-    color: var( --second_font_color );
-    background-color: var( --content_background );
-  }
-
-  &[regular=true]:hover {
-    color: var( --font_reverce_accent_color );
-    background-color: var( --second_font_color );
-  }
-
-  &[accent=true] {
-    border: 1px solid var( --accent_second_button_color );
-    color: var( --accent_second_button_color );
-    background-color: var( --content_background );
-  }
-
-  &[accent=true]:hover {
-    color: var( --font_reverce_accent_color );
-    background-color: var( --accent_second_button_color );
-  }
-
-  &:hover nice-icon svg {
-    fill: var( --icon_reverce_accent_color );
+    color: var( --regular_button_hover_text );
+    background-color: var( --regular_button_hover_background );
+    border: 1px solid var( --regular_button_hover_border );
     opacity: 1;
   }
 
   &:hover nice-icon svg {
-    fill: var(--icon_reverce_accent_color);
+    fill: var( --regular_button_hover_icon );
     opacity: 1;
   }
 
-  &.submit nice-icon svg {
-    fill: var( --icon_reverce_accent_color );
-  }
-
-  &.submit:hover nice-icon svg {
-    fill: var( --icon_reverce_accent_color );
-    opacity: 1;
-  }
-
-  .submit:hover nice-icon svg {
-    fill: var( --icon_reverce_accent_color );
-    opacity: 1;
-  }
-
-  &.tiny {
+  &[size=tiny] {
     font-size: 12px;
     padding: 2px 8px;
   }
 
-  &.tiny nice-icon {
+  &[size=tiny] nice-icon {
     margin-right: 4px;
   }
 
-  &.small {
+  &[size=small] {
     font-size: 14px;
     padding: 4px 12px;
   }
 
-  &.small nice-icon {
+  &[size=small] nice-icon {
     margin-right: 6px;
   }
 
-  &.medium {
+  &[size=medium] {
     font-size: 16px;
     padding: 6px 16px;
   }
 
-  &.medium nice-icon {
+  &[size=medium] nice-icon {
     margin-right: 8px;
   }
 
-  &.large {
+  &[size=large] {
     font-size: 16px;
     padding: 8px 20px;
   }
 
-  &.large nice-icon {
+  &[size=large] nice-icon {
     margin-right: 10px;
   }
 
-  &.huge {
+  &[size=huge] {
     font-size: 18px;
     padding: 12px 24px;
   }
 
-  &.huge nice-icon {
+  &[size=huge] nice-icon {
     margin-right: 12px;
   }
 
-  /** Submit Button **/
+  /**
+    Styles
+   **/
 
-  &.submit {
-    font-family: var( --regular_font_family );
-    border: 1px solid var( --accent_second_button_color );
-    background-color: var( --accent_second_button_color );
-    color: var( --font_reverce_accent_color );
+  /** Regular Buttons **/
+
+  &.confirm {
+    color: var( --confirm_button_text );
+    border: 1px solid var( --confirm_button_border );
+    background-color: var( --confirm_button_background );
   }
 
-  &.submit nice-icon svg {
-    fill: var( --icon_reverce_accent_color );
+  &.confirm nice-icon svg {
+    fill: var( --confirm_button_icon );
   }
 
-  &.submit:hover nice-icon svg {
-    fill: var( --icon_reverce_accent_color );
+  &.confirm:hover {
+    color: var( --confirm_button_hover_text );
+    background-color: var( --confirm_button_hover_background );
+    border: 1px solid var( --confirm_button_hover_border );
     opacity: 1;
   }
 
-  &.submit[accent=true] {
-    background-color: var( --accent_button_color );
+  &.confirm:hover nice-icon svg {
+    fill: var( --confirm_button_hover_icon );
   }
 
-  &.submit.w100 {
+  /** Save button **/
+
+  &.save {
+    color: var( --save_button_text );
+    border: 1px solid var( --save_button_border );
+    background-color: var( --save_button_background );
+  }
+
+  &.save nice-icon svg {
+    fill: var( --save_button_icon );
+  }
+
+  &.save:hover {
+    opacity: 1;
+    color: var( --save_button_hover_text );
+    border: 1px solid var( --save_button_hover_border );
+    background-color: var( --save_button_hover_background );
+  }
+
+  &.save:hover nice-icon svg {
+    opacity: 1;
+    fill: var( --save_button_hover_icon );
+  }
+
+  /** Accent Buttons **/
+
+  &.accent {
+    border: 1px solid var( --accent_button_border);
+    color: var( --accent_button_text );
+    background-color: var( --accent_button_background );
+  }
+
+  &.accent nice-icon svg {
+    fill: var( --accent_button_icon );
+  }
+
+  &.accent:hover {
+    border: 1px solid var( --accent_button_hover_border);
+    color: var( --accent_button_hover_text );
+    background-color: var( --accent_button_hover_background );
+    opacity: 1;
+  }
+
+  &.accent:hover nice-icon svg {
+    fill: var( --accent_button_hover_icon );
+    opacity: 1;
+  }
+
+  /** Action Button **/
+
+  &.action {
+    border: 1px solid var( --action_button_border );
+    background-color: var( --action_button_background );
+    color: var( --action_button_text );
+    margin: 0;
+  }
+
+  &.action nice-icon svg {
+    fill: var( --action_button_icon );
+  }
+
+  &.action:hover {
+    border: 1px solid var( --action_button_hover_border );
+    background-color: var( --action_button_hover_background );
+    color: var( --action_button_hover_text );
+    opacity: 1;
+  }
+
+  &.action:hover nice-icon svg {
+    fill: var( --action_button_hover_icon );
+    opacity: 1;
+  }
+
+  /** Cancel Button **/
+
+  &.cancel {
+    border: 1px solid var( --cancel_button_border );
+    color: var( --cancel_button_text );
+    background-color: var( --cancel_button_background );
+  }
+
+  &.cancel nice-icon svg {
+    fill: var( --cancel_button_icon );
+  }
+
+  &.cancel:hover {
+    color: var( --cancel_button_hover_text );
+    background-color: var( --cancel_button_hover_background );
+    border: 1px solid var( --cancel_button_hover_border );
+    opacity: 1;
+  }
+
+  &.cancel:hover nice-icon svg {
+    fill: var( --cancel_button_hover_icon );
+    opacity: 1;
+  }
+
+  &.w100 {
     width: 100%;
     text-align: center;
   }
 
-  &.submit.unactive {
-    background-color: var( --sub_bacground );
+  &[disabled=true],
+  &:hover[disabled=true]{
+    background-color: var( --disabled_button_background_color );
+    color: var( --disabled_button_text_color );
+    cursor: not-allowed;
+    opacity: 0.8;
   }
 
-  &.submit:hover {
-    opacity: 1;
-  }
-
-  &.submit.disabled {
-    background-color: var( --disabled_button_color );
+  &[disabled=true] nice-icon svg,
+  &:hover[disabled=true] nice-icon svg{
+    fill: var( --disabled_button_text_color );
   }
 
 }

@@ -8,7 +8,7 @@ const defaults = {
     pointer: false,
     rotate: false,
     spin: false,
-    hidden: false
+    hidden: false,
 };
 
 export class NiceIcon extends HTMLElement {

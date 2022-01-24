@@ -2,8 +2,8 @@ class NiceSettings_Header extends HTMLElement {
 
     constructor() {
         super();
-        this.render();
         this.model = this.closest('nice-settings').model;
+        this.render();
     }
 
     render() {
@@ -15,13 +15,13 @@ class NiceSettings_Header extends HTMLElement {
         let html = ``;
         html += `<div class="header_title">${model.title}</div>`;
         html += `<div class="header_controls">
-            <nice-button>Collapse All</nice-button>
-            <nice-button>Expand All</nice-button>
-            <nice-button>Save Settings</nice-button>
+            <nice-button text="Collapse All" icon="double_arrow_down"></nice-button>
+            <nice-button text="Expand All" icon="double_arrow_down" icon_rotate="true"></nice-button>
+            <nice-button class="confirm" text="Save Settings" icon="check"></nice-button>
         </div>`;
         return html;
     }
 
 }
 
-customElements.define( 'nice-settings__header', NiceSettings_Header );
+customElements.define( 'nice-settings_header', NiceSettings_Header );

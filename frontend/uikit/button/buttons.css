@@ -5,121 +5,173 @@ nice-button {
   border-radius: 4px;
   padding: 8px 20px;
   font-size: 16px;
-  color: var(--accent_button_color);
-  border: 1px solid var(--accent_button_color);
-  background-color: var(--content_background);
+  border: 1px solid var(--regular_button_border);
+  color: var(--regular_button_text);
+  background-color: var(--regular_button_background);
   transition: var(--regular_transition);
   cursor: pointer;
   width: fit-content;
   width: -moz-fit-content;
   opacity: 0.8;
-  /** Submit Button **/
+  /**
+    Styles
+   **/
+  /** Regular Buttons **/
+  /** Save button **/
+  /** Accent Buttons **/
+  /** Action Button **/
+  /** Cancel Button **/
+}
+nice-button nice-icon svg {
+  fill: var(--regular_button_icon);
 }
 nice-button:hover {
-  color: var(--font_reverce_accent_color);
-  background-color: var(--accent_button_color);
-  opacity: 1;
-}
-nice-button[regular=true] {
-  border: 1px solid var(--divider_color);
-  color: var(--second_font_color);
-  background-color: var(--content_background);
-}
-nice-button[regular=true]:hover {
-  color: var(--font_reverce_accent_color);
-  background-color: var(--second_font_color);
-}
-nice-button[accent=true] {
-  border: 1px solid var(--accent_second_button_color);
-  color: var(--accent_second_button_color);
-  background-color: var(--content_background);
-}
-nice-button[accent=true]:hover {
-  color: var(--font_reverce_accent_color);
-  background-color: var(--accent_second_button_color);
-}
-nice-button:hover nice-icon svg {
-  fill: var(--icon_reverce_accent_color);
+  color: var(--regular_button_hover_text);
+  background-color: var(--regular_button_hover_background);
+  border: 1px solid var(--regular_button_hover_border);
   opacity: 1;
 }
 nice-button:hover nice-icon svg {
-  fill: var(--icon_reverce_accent_color);
+  fill: var(--regular_button_hover_icon);
   opacity: 1;
 }
-nice-button.submit nice-icon svg {
-  fill: var(--icon_reverce_accent_color);
-}
-nice-button.submit:hover nice-icon svg {
-  fill: var(--icon_reverce_accent_color);
-  opacity: 1;
-}
-nice-button .submit:hover nice-icon svg {
-  fill: var(--icon_reverce_accent_color);
-  opacity: 1;
-}
-nice-button.tiny {
+nice-button[size=tiny] {
   font-size: 12px;
   padding: 2px 8px;
 }
-nice-button.tiny nice-icon {
+nice-button[size=tiny] nice-icon {
   margin-right: 4px;
 }
-nice-button.small {
+nice-button[size=small] {
   font-size: 14px;
   padding: 4px 12px;
 }
-nice-button.small nice-icon {
+nice-button[size=small] nice-icon {
   margin-right: 6px;
 }
-nice-button.medium {
+nice-button[size=medium] {
   font-size: 16px;
   padding: 6px 16px;
 }
-nice-button.medium nice-icon {
+nice-button[size=medium] nice-icon {
   margin-right: 8px;
 }
-nice-button.large {
+nice-button[size=large] {
   font-size: 16px;
   padding: 8px 20px;
 }
-nice-button.large nice-icon {
+nice-button[size=large] nice-icon {
   margin-right: 10px;
 }
-nice-button.huge {
+nice-button[size=huge] {
   font-size: 18px;
   padding: 12px 24px;
 }
-nice-button.huge nice-icon {
+nice-button[size=huge] nice-icon {
   margin-right: 12px;
 }
-nice-button.submit {
-  font-family: var(--regular_font_family);
-  border: 1px solid var(--accent_second_button_color);
-  background-color: var(--accent_second_button_color);
-  color: var(--font_reverce_accent_color);
+nice-button.confirm {
+  color: var(--confirm_button_text);
+  border: 1px solid var(--confirm_button_border);
+  background-color: var(--confirm_button_background);
 }
-nice-button.submit nice-icon svg {
-  fill: var(--icon_reverce_accent_color);
+nice-button.confirm nice-icon svg {
+  fill: var(--confirm_button_icon);
 }
-nice-button.submit:hover nice-icon svg {
-  fill: var(--icon_reverce_accent_color);
+nice-button.confirm:hover {
+  color: var(--confirm_button_hover_text);
+  background-color: var(--confirm_button_hover_background);
+  border: 1px solid var(--confirm_button_hover_border);
   opacity: 1;
 }
-nice-button.submit[accent=true] {
-  background-color: var(--accent_button_color);
+nice-button.confirm:hover nice-icon svg {
+  fill: var(--confirm_button_hover_icon);
 }
-nice-button.submit.w100 {
+nice-button.save {
+  color: var(--save_button_text);
+  border: 1px solid var(--save_button_border);
+  background-color: var(--save_button_background);
+}
+nice-button.save nice-icon svg {
+  fill: var(--save_button_icon);
+}
+nice-button.save:hover {
+  opacity: 1;
+  color: var(--save_button_hover_text);
+  border: 1px solid var(--save_button_hover_border);
+  background-color: var(--save_button_hover_background);
+}
+nice-button.save:hover nice-icon svg {
+  opacity: 1;
+  fill: var(--save_button_hover_icon);
+}
+nice-button.accent {
+  border: 1px solid var(--accent_button_border);
+  color: var(--accent_button_text);
+  background-color: var(--accent_button_background);
+}
+nice-button.accent nice-icon svg {
+  fill: var(--accent_button_icon);
+}
+nice-button.accent:hover {
+  border: 1px solid var(--accent_button_hover_border);
+  color: var(--accent_button_hover_text);
+  background-color: var(--accent_button_hover_background);
+  opacity: 1;
+}
+nice-button.accent:hover nice-icon svg {
+  fill: var(--accent_button_hover_icon);
+  opacity: 1;
+}
+nice-button.action {
+  border: 1px solid var(--action_button_border);
+  background-color: var(--action_button_background);
+  color: var(--action_button_text);
+  margin: 0;
+}
+nice-button.action nice-icon svg {
+  fill: var(--action_button_icon);
+}
+nice-button.action:hover {
+  border: 1px solid var(--action_button_hover_border);
+  background-color: var(--action_button_hover_background);
+  color: var(--action_button_hover_text);
+  opacity: 1;
+}
+nice-button.action:hover nice-icon svg {
+  fill: var(--action_button_hover_icon);
+  opacity: 1;
+}
+nice-button.cancel {
+  border: 1px solid var(--cancel_button_border);
+  color: var(--cancel_button_text);
+  background-color: var(--cancel_button_background);
+}
+nice-button.cancel nice-icon svg {
+  fill: var(--cancel_button_icon);
+}
+nice-button.cancel:hover {
+  color: var(--cancel_button_hover_text);
+  background-color: var(--cancel_button_hover_background);
+  border: 1px solid var(--cancel_button_hover_border);
+  opacity: 1;
+}
+nice-button.cancel:hover nice-icon svg {
+  fill: var(--cancel_button_hover_icon);
+  opacity: 1;
+}
+nice-button.w100 {
   width: 100%;
   text-align: center;
 }
-nice-button.submit.unactive {
-  background-color: var(--sub_bacground);
+nice-button[disabled=true], nice-button:hover[disabled=true] {
+  background-color: var(--disabled_button_background_color);
+  color: var(--disabled_button_text_color);
+  cursor: not-allowed;
+  opacity: 0.8;
 }
-nice-button.submit:hover {
-  opacity: 1;
-}
-nice-button.submit.disabled {
-  background-color: var(--disabled_button_color);
+nice-button[disabled=true] nice-icon svg, nice-button:hover[disabled=true] nice-icon svg {
+  fill: var(--disabled_button_text_color);
 }
 
 /*# sourceMappingURL=buttons.css.map */
