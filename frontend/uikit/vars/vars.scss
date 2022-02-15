@@ -145,6 +145,22 @@
   --disabled_button_background_color: #aaaaaa;
   --disabled_button_text_color: #efefef;
 
+  /** Settings **/
+  --settings_element_background: '#ffffff';
+  --settings_element_background_hover: '#D5E6FB';
+  --settings_element_background_active: '#2F80ED';
+  --settings_element_background_active_hover: '#5c98e7';
+
+  --settings_element_text: '#212121';
+  --settings_element_text_hover: '#042542';
+  --settings_element_text_active: '#ffffff';
+  --settings_element_text_active_hover: '#ececec';
+
+  --settings_element_icon: '#212121';
+  --settings_element_icon_hover: '#042542';
+  --settings_element_icon_active: '#ffffff';
+  --settings_element_icon_active_hover: '#ececec';
+
   /** Notifications **/
   --success: #1AC119;
   --info: #2790E8;

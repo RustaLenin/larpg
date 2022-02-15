@@ -10,7 +10,7 @@ nice-settings_header {
   display: flex;
   border: 1px solid black;
   height: 50px;
-  padding: 8px 24px;
+  padding: 8px 24px 8px 8px;
   background-color: var(--main_background);
   justify-content: space-between;
   align-items: center;
@@ -29,6 +29,92 @@ nice-settings_header .header_controls nice-button {
 }
 nice-settings_header .header_controls nice-button:last-of-type {
   margin-right: 0;
+}
+
+nice-settings__menu {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: calc(85vh - 50px);
+  border: 1px solid black;
+  border-top: 0;
+  justify-content: space-between;
+  background-color: var(--settings_element_background);
+}
+nice-settings__menu .menu_list {
+  display: flex;
+  flex-direction: column;
+}
+nice-settings__menu .menu_list nice-settings__menu_item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--settings_element_text);
+  background-color: var(--settings_element_background);
+  border-bottom: 1px solid #ccc;
+  height: 50px;
+  box-sizing: border-box;
+}
+nice-settings__menu .menu_list nice-settings__menu_item nice-icon {
+  margin-right: 8px;
+}
+nice-settings__menu .menu_list nice-settings__menu_item nice-icon svg {
+  fill: var(--settings_element_icon);
+}
+nice-settings__menu .menu_list nice-settings__menu_item:hover {
+  color: var(--settings_element_text_hover);
+  background-color: var(--settings_element_background_hover);
+}
+nice-settings__menu .menu_list nice-settings__menu_item:hover nice-icon svg {
+  fill: var(--settings_element_icon_hover);
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true] {
+  color: var(--settings_element_text_active);
+  background-color: var(--settings_element_background_active);
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true] nice-icon svg {
+  fill: var(--settings_element_icon_active);
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true]:before, nice-settings__menu .menu_list nice-settings__menu_item[active=true]:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  right: -25px;
+  border-right: 25px solid transparent;
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true]:before {
+  border-top: 25px solid var(--settings_element_background_active);
+  bottom: 0;
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true]:after {
+  border-bottom: 25px solid var(--settings_element_background_active);
+  top: 0;
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true]:hover {
+  color: var(--settings_element_text_active_hover);
+  background-color: var(--settings_element_background_active_hover);
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true]:hover nice-icon svg {
+  fill: var(--settings_element_icon_active_hover);
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true]:hover:before {
+  border-top: 25px solid var(--settings_element_background_active_hover);
+  bottom: 0;
+}
+nice-settings__menu .menu_list nice-settings__menu_item[active=true]:hover:after {
+  border-bottom: 25px solid var(--settings_element_background_active_hover);
+  top: 0;
+}
+nice-settings__menu .menu_list nice-settings__menu_item:last-of-type {
+  border-bottom: none;
+}
+nice-settings__menu .menu_controls {
+  height: 50px;
+  width: 100%;
 }
 
 /*# sourceMappingURL=settings.css.map */

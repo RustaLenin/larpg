@@ -7,7 +7,7 @@ export let settings_model = {
             'main': {
                 'name': 'main',
                 'label': 'Main settings',
-                'icon': false,
+                'icon': 'cog',
                 'active': true,
                 'order': 0,
             },

@@ -10,7 +10,7 @@ nice-settings_header {
   display: flex;
   border: 1px solid black;
   height: 50px;
-  padding: 8px 24px;
+  padding: 8px 24px 8px 8px;
   background-color: var(--main_background);
   justify-content: space-between;
   align-items: center;
@@ -35,5 +35,98 @@ nice-settings_header {
   }
 }
 
+nice-settings__menu {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: calc(85vh - 50px);
+  border: 1px solid black;
+  border-top: 0;
+  justify-content: space-between;
+  background-color: var(--settings_element_background);
 
+  .menu_list {
+    display: flex;
+    flex-direction: column;
+
+    nice-settings__menu_item {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--settings_element_text);
+      background-color: var(--settings_element_background);
+      border-bottom: 1px solid #ccc;
+      height: 50px;
+      box-sizing: border-box;
+
+      nice-icon {
+        margin-right: 8px;
+      }
+      nice-icon svg {
+        fill: var(--settings_element_icon);
+      }
+    }
+
+    nice-settings__menu_item:hover {
+      color: var(--settings_element_text_hover);
+      background-color: var(--settings_element_background_hover);
+
+      nice-icon svg {
+        fill: var(--settings_element_icon_hover);
+      }
+    }
+
+    nice-settings__menu_item[active=true] {
+      color: var(--settings_element_text_active);
+      background-color: var(--settings_element_background_active);
+      nice-icon svg {
+        fill: var(--settings_element_icon_active);
+      }
+      &:before, &:after {
+        display: block;
+        content: ' ';
+        position: absolute;
+        right: -25px;
+        border-right: 25px solid transparent;
+      }
+      &:before {
+        border-top: 25px solid var( --settings_element_background_active );
+        bottom: 0;
+      }
+      &:after {
+        border-bottom: 25px solid var( --settings_element_background_active );
+        top: 0;
+      }
+    }
+
+    nice-settings__menu_item[active=true]:hover {
+      color: var(--settings_element_text_active_hover);
+      background-color: var(--settings_element_background_active_hover);
+      nice-icon svg {
+        fill: var(--settings_element_icon_active_hover);
+      }
+      &:before {
+        border-top: 25px solid var( --settings_element_background_active_hover );
+        bottom: 0;
+      }
+      &:after {
+        border-bottom: 25px solid var( --settings_element_background_active_hover );
+        top: 0;
+      }
+    }
+
+    nice-settings__menu_item:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  .menu_controls {
+    height: 50px;
+    width: 100%;
+  }
+}
 

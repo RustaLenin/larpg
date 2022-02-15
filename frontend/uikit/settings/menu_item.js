@@ -1,3 +1,14 @@
+import { collectModel } from '../helpers/models.js'
+
+/** Default notify data **/
+const defaults = {
+    name: 'menu_element',
+    label: 'Menu element',
+    icon: false,
+    active: false,
+    order: 0,
+};
+
 class NiceSettings_MenuItem extends HTMLElement {
 
     constructor() {
@@ -6,16 +17,21 @@ class NiceSettings_MenuItem extends HTMLElement {
     }
 
     render() {
-        // this.model = collectModel(defaults, this);
+        this.model = collectModel(defaults, this);
         // this.model.id = this.getAttribute('id');
         this.innerHTML = this.template();
+        this.setAttribute('active',this.model.active );
+        this.setAttribute('name',this.model.name );
     }
 
     template() {
         let model = this.model;
         let html = ``;
-        html += `<div class="menu_element__icon"></div>`;
-        html += `<div class="menu_element__label"></div>`;
+        console.log(model.icon);
+        if ( model.icon !== 'false' ) {
+            html += `<nice-icon icon="${model.icon}"></nice-icon>`;
+        }
+        html += `<div class="menu_element__label">${model.label}</div>`;
 
         return html;
     }

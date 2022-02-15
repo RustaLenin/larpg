@@ -1,5 +1,6 @@
 import { SvgMap } from './map.js';
 import { uikit } from '../uikit.js';
+import { collectModel } from '../helpers/models.js'
 
 /** Default SVG Icon data **/
 const defaults = {
@@ -16,6 +17,7 @@ export class NiceIcon extends HTMLElement {
     /** Function fires when this element loading in DOM **/
     constructor() {
         super();
+        this.model = collectModel(defaults, this);
         this.render();
     }
 
@@ -33,9 +35,10 @@ export class NiceIcon extends HTMLElement {
 
     /** This function get icon name from attribute and try to find it in map and place in the WebComponent container **/
     render() {
-        // console.log('nice icon render start');
-        let icon = this.getAttribute('icon');
-        this.innerHTML = SvgMap[icon] ? SvgMap[icon] : SvgMap[defaults.icon];
+        let model = this.model;
+        this.setAttribute('icon', model.icon);
+        this.setAttribute('size', model.size);
+        this.innerHTML = SvgMap[model.icon];
     }
 
 }
