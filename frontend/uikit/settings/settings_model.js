@@ -20,4 +20,16 @@ export let settings_model = {
             }
         }
     },
+    'content': {
+        'tabs': {
+            'main': {
+                'content': `<div>123</div>`,
+                'active': true
+            },
+            'secondary': {
+                'content': () => { return `<span>456</span>`},
+                'active': false
+            }
+        }
+    }
 }

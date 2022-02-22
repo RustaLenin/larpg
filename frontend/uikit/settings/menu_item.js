@@ -1,4 +1,5 @@
 import { collectModel } from '../helpers/models.js'
+import { switch_tab } from "../behavior/tabs/tabs.js";
 
 /** Default notify data **/
 const defaults = {
@@ -14,6 +15,9 @@ class NiceSettings_MenuItem extends HTMLElement {
     constructor() {
         super();
         this.render();
+        this.onclick = () => {
+            switch_tab(this);
+        }
     }
 
     render() {

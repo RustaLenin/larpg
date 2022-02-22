@@ -3,7 +3,7 @@ import {uikit} from "../uikit.js";
 import * as header from './settings_header.js'
 import * as menu from './settings_menu.js'
 import * as menu_item from './menu_item.js'
-import * as body from './settings_body.js'
+import * as body from './settings_content.js'
 
 
 class NiceSettings extends HTMLElement {
@@ -27,6 +27,7 @@ class NiceSettings extends HTMLElement {
         if ( model.menu ) {
             html += `<nice-settings__menu></nice-settings__menu>`;
         }
+        html += `<nice-settings__content></nice-settings__content>`;
         html += `</div>`;
 
         return html;

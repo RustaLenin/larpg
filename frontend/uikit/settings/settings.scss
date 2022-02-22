@@ -130,3 +130,35 @@ nice-settings__menu {
   }
 }
 
+.setting_body {
+  display: flex;
+}
+
+nice-settings__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid black;
+  border-left-width: 0;
+  border-top-width: 0;
+
+  .settings_tab {
+    padding: 8px 32px;
+    transition: 0.4s;
+  }
+
+  .settings_tab[data-active="true"] {
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    opacity: 1;
+  }
+  .settings_tab[data-active="false"] {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+
+}
+
